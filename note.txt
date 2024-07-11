@@ -1,3 +1,6 @@
 Hot reloading: web will update realtime without reloading 
 Babel compiler: a library support using different versions of JS
 Webpack: a tool helps compress project
+
+./: current folder
+../: parent folder
