@@ -9,3 +9,6 @@ set props as number to child component:
     1. set a variable for it (E.g: let num = 9)
     2. written in {} (age = {26}) 
 => the same for booleans, arrays
+================================================================
+array.push(obj) => add as the last item
+array.unshift(obj) => add as the first item

@@ -26,7 +26,7 @@ class DisplayInfo extends React.Component {
                         console.log("Check friend ", friend)
                         return (
                             <div key={friend.id}>
-                                <div>Friend {friend.id}: {friend.name}</div>
+                                <div>Friend ({friend.id}): {friend.name}</div>
                                 <div className={+friend.age > 25 ? "green" : "red"}>Age: {friend.age}</div>
                                 <hr />
                             </div>
