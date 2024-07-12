@@ -1,4 +1,5 @@
 import React from "react";
+import "./DisplayInfo.scss"
 
 class DisplayInfo extends React.Component {
     state = {
@@ -14,7 +15,7 @@ class DisplayInfo extends React.Component {
         const { listFriends } = this.props;
         console.log(listFriends)
         return (
-            <>
+            <div className="display-infor-container">
                 <div>
                     <span
                         onClick={() => this.handleOnClick()}
@@ -23,10 +24,9 @@ class DisplayInfo extends React.Component {
                 { this.state.isShow && 
                 <div>
                     {listFriends.map((friend) => {
-                        console.log("Check friend ", friend)
                         return (
                             <div key={friend.id}>
-                                <div>Friend ({friend.id}): {friend.name}</div>
+                                <div style={{color: "red"}}>Friend ({friend.id}): {friend.name}</div>
                                 <div className={+friend.age > 25 ? "green" : "red"}>Age: {friend.age}</div>
                                 <hr />
                             </div>
@@ -35,7 +35,7 @@ class DisplayInfo extends React.Component {
                     })}
                 </div>
                 }
-            </>
+            </div>
         )
     }
 }
