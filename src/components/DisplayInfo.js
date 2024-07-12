@@ -3,6 +3,12 @@ import "./DisplayInfo.scss"
 import logo from './../logo.svg'
 
 class DisplayInfo extends React.Component {
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         isShow: true
+    //     }
+    // }
     state = {
         isShow: true
     }
