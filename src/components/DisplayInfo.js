@@ -18,25 +18,30 @@ class DisplayInfo extends React.Component {
         //template
         return (
             <div className="display-infor-container">
-                <img src={logo}/>
+                {/* <img src={logo}/> */}
                 <div>
                     <span
                         onClick={() => this.handleOnClick()}
-                    >{ this.state.isShow === true ? 'Hide' : 'Show'} list Friends</span>
+                    >{this.state.isShow === true ? 'Hide' : 'Show'} list Friends</span>
                 </div>
-                { this.state.isShow && 
-                <div>
-                    {listFriends.map((friend) => {
-                        return (
-                            <div key={friend.id}>
-                                <div>Friend ({friend.id}): {friend.name}</div>
-                                <div className={+friend.age > 25 ? "green" : "red"}>Age: {friend.age}</div>
-                                <hr />
-                            </div>
-                        )
+                {this.state.isShow &&
+                    <div>
+                        {listFriends.map((friend) => {
+                            return (
+                                <div key={friend.id}>
+                                    <div>
+                                        <div>Friend ({friend.id}): {friend.name}</div>
+                                        <div className={+friend.age > 25 ? "green" : "red"}>Age: {friend.age}</div>
+                                    </div>
+                                    <div>
+                                        <button onClick={() => this.props.handleDeleteFriend(friend.id)}>Delete</button>
+                                    </div>
+                                    <hr></hr>
+                                </div>
+                            )
 
-                    })}
-                </div>
+                        })}
+                    </div>
                 }
             </div>
         )

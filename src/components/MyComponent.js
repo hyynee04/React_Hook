@@ -19,18 +19,25 @@ class MyComponent extends React.Component {
         //     listFriends: listFriendsClone
         // }) 
         this.setState({
-            listFriends: [friend, ...this.state.listFriends]
+            listFriends: [friend, ...this.state.listFriends] // add as the FIRST item of array
+            // listFriends: [...this.state.listFriends, friend] // add as the LAST item of array
         })
     }
+
+    handleDeleteFriend = (id) => {
+        let listFriendsClone = [...this.state.listFriends]
+        listFriendsClone = listFriendsClone.filter(item => item.id !== id)
+        console.log(listFriendsClone)
+        this.setState({
+            listFriends: listFriendsClone
+        })
+    }
+
     //JSX
     render() {
         //DRY: Don't repeat yourself
-
-        const test = ["Nguyen Duc Huy and something else", 1]
-
         return (
             <>
-                {test}
                 <div className="a">
                     <div>
                         <AddUserInfo
@@ -39,6 +46,7 @@ class MyComponent extends React.Component {
                         <br /><br />
                         <DisplayInfo
                             listFriends={this.state.listFriends}
+                            handleDeleteFriend={this.handleDeleteFriend}
                         />
                     </div>
                 </div>
