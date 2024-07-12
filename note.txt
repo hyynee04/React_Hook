@@ -12,3 +12,6 @@ set props as number to child component:
 ================================================================
 array.push(obj) => add as the last item
 array.unshift(obj) => add as the first item
+================================================================
+React fragment: <React.Fragment>...</React.Fragment>
+    - shortage syntax: <></>

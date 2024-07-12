@@ -24,17 +24,24 @@ class MyComponent extends React.Component {
     }
     //JSX
     render() {
+        //DRY: Don't repeat yourself
         return (
-            //DRY: Don't repeat yourself
-            <div>
-                <AddUserInfo
-                    handleAddNewFriend={this.handleAddNewFriend}
-                />
-                <br /><br />
-                <DisplayInfo
-                    listFriends={this.state.listFriends}
-                />
-            </div>
+            <>
+                <div className="a">
+                    <div>
+                        <AddUserInfo
+                            handleAddNewFriend={this.handleAddNewFriend}
+                        />
+                        <br /><br />
+                        <DisplayInfo
+                            listFriends={this.state.listFriends}
+                        />
+                    </div>
+                </div>
+                <div className="b"></div>
+            </>
+
+
         )
     }
 
