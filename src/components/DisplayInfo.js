@@ -14,7 +14,8 @@ class DisplayInfo extends React.Component {
     }
     render() {
         const { listFriends } = this.props;
-        console.log(listFriends)
+
+        //template
         return (
             <div className="display-infor-container">
                 <img src={logo}/>

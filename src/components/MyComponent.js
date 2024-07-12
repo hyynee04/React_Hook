@@ -25,8 +25,12 @@ class MyComponent extends React.Component {
     //JSX
     render() {
         //DRY: Don't repeat yourself
+
+        const test = ["Nguyen Duc Huy and something else", 1]
+
         return (
             <>
+                {test}
                 <div className="a">
                     <div>
                         <AddUserInfo

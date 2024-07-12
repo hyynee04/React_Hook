@@ -15,3 +15,18 @@ array.unshift(obj) => add as the first item
 ================================================================
 React fragment: <React.Fragment>...</React.Fragment>
     - shortage syntax: <></>
+================================================================
+- React component = template + js logic
+    + template is basically an html code block
+    + template support write js inside
+================================================================
+In return, can render a variable to screen using {} (E.g: {test}) but if test is an object, it's going to be error 
+-> Can use JSON.stringtify() to change object to string and then be rendered to screen but it'll be the EXACT STRING 
+E.g: 
+    let test = { name: 'Huy', age: 45}
+    return(
+        {JSON.stringtify(test)}
+    )
+    //Output: { name: 'Huy', age: 45}
+- if test is a boolean variable it'll not be render to screen and there'll be no errror
+=> DON'T PRINT A VARIABLE TO SCREEN, if want to check, use console.log() instead
