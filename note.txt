@@ -1,6 +1,11 @@
 Hot reloading: web will update realtime without reloading 
 Babel compiler: a library support using different versions of JS
 Webpack: a tool helps compress project
-
+================================================================
 ./: current folder
 ../: parent folder
+================================================================
+set props as number to child component:
+    1. set a variable for it (E.g: let num = 9)
+    2. written in {} (age = {26}) 
+=> the same for booleans, arrays

@@ -1,5 +1,6 @@
 import React from "react";
 import UserInfo from "./UserInfo";
+import DisplayInfo from "./DisplayInfo";
 
 class MyComponent extends React.Component {
     
@@ -9,6 +10,10 @@ class MyComponent extends React.Component {
         return (
             <div>
                 <UserInfo></UserInfo>
+                <br /><br />
+                <DisplayInfo name='Nguyen Duc Huy' age='21' />
+                <hr></hr>
+                <DisplayInfo name='Phan Tran Nhat Ha' age={30} />
             </div>
         )
     }
