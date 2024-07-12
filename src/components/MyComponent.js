@@ -3,17 +3,22 @@ import UserInfo from "./UserInfo";
 import DisplayInfo from "./DisplayInfo";
 
 class MyComponent extends React.Component {
-    
-
+    state = {
+        listFriends: [
+            {id: 1, name: 'Chandler', age: '30'},
+            {id: 2, name: 'Monica', age: '29'},
+            {id: 3, name: 'Rachel', age: '29'},
+            {id: 1, name: 'Ross', age: '30'}
+        ]
+    }
     //JSX
     render() {
         return (
+            //DRY: Don't repeat yourself
             <div>
                 <UserInfo></UserInfo>
                 <br /><br />
-                <DisplayInfo name='Nguyen Duc Huy' age='21' />
-                <hr></hr>
-                <DisplayInfo name='Phan Tran Nhat Ha' age={30} />
+                <DisplayInfo listFriends={this.state.listFriends} />
             </div>
         )
     }
