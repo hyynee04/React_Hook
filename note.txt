@@ -30,3 +30,9 @@ E.g:
     //Output: { name: 'Huy', age: 45}
 - if test is a boolean variable it'll not be render to screen and there'll be no errror
 => DON'T PRINT A VARIABLE TO SCREEN, if want to check, use console.log() instead
+================================================================
+HOOK in stateless component
+- using useState
+    const [isShown, setShowHide] = useState(true)
+    - isShown is a variable with value true
+    - setShowHide is a function to update isShown

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./DisplayInfo.scss"
 import logo from './../logo.svg'
 
@@ -44,11 +44,18 @@ import logo from './../logo.svg'
 //Stateless
 const DisplayInfo = (props) => {
     const { listFriends } = props;
+    const [isShown, setShowHide] = useState(true)
+
+    const handleShowHide = () => {
+        setShowHide(!isShown)
+    }
 
     return (
         <div className="display-infor-container">
-            {/* <img src={logo}/> */}
-            {true &&
+            <div>
+                <span onClick={() => handleShowHide()}>{isShown === true ? "Hide" : "Show"} list friends</span>
+            </div>
+            {isShown &&
                 <div>
                     {listFriends.map((friend) => {
                         return (
