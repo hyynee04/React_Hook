@@ -2,56 +2,75 @@ import React from "react";
 import "./DisplayInfo.scss"
 import logo from './../logo.svg'
 
-class DisplayInfo extends React.Component {
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         isShow: true
-    //     }
-    // }
-    state = {
-        isShow: true
-    }
+//Statefull
+// class DisplayInfo extends React.Component {
+//     // constructor(props) {
+//     //     super(props)
+//     //     this.state = {
+//     //         isShow: true
+//     //     }
+//     // }
+//     render() {
+//         const { listFriends } = this.props;
+//         //template
+//         return (
+//             <div className="display-infor-container">
+//                 {/* <img src={logo}/> */}
+//                 {true &&
+//                     <div>
+//                         {listFriends.map((friend) => {
+//                             return (
+//                                 <div key={friend.id}>
+//                                     <div>
+//                                         <div>Friend ({friend.id}): {friend.name}</div>
+//                                         <div className={+friend.age > 25 ? "green" : "red"}>Age: {friend.age}</div>
+//                                     </div>
+//                                     <div>
+//                                         <button onClick={() => this.props.handleDeleteFriend(friend.id)}>Delete</button>
+//                                     </div>
+//                                     <hr></hr>
+//                                 </div>
+//                             )
 
-    handleOnClick = () => {
-        this.setState({
-            isShow: !this.state.isShow
-        })
-    }
-    render() {
-        const { listFriends } = this.props;
+//                         })}
+//                     </div>
+//                 }
+//             </div>
+//         )
+//     }
+// }
 
-        //template
-        return (
-            <div className="display-infor-container">
-                {/* <img src={logo}/> */}
+
+//Stateless
+const DisplayInfo = (props) => {
+    const { listFriends } = props;
+
+    return (
+        <div className="display-infor-container">
+            {/* <img src={logo}/> */}
+            {true &&
                 <div>
-                    <span
-                        onClick={() => this.handleOnClick()}
-                    >{this.state.isShow === true ? 'Hide' : 'Show'} list Friends</span>
-                </div>
-                {this.state.isShow &&
-                    <div>
-                        {listFriends.map((friend) => {
-                            return (
-                                <div key={friend.id}>
-                                    <div>
-                                        <div>Friend ({friend.id}): {friend.name}</div>
-                                        <div className={+friend.age > 25 ? "green" : "red"}>Age: {friend.age}</div>
-                                    </div>
-                                    <div>
-                                        <button onClick={() => this.props.handleDeleteFriend(friend.id)}>Delete</button>
-                                    </div>
-                                    <hr></hr>
+                    {listFriends.map((friend) => {
+                        return (
+                            <div key={friend.id}>
+                                <div>
+                                    <div>Friend ({friend.id}): {friend.name}</div>
+                                    <div className={+friend.age > 25 ? "green" : "red"}>Age: {friend.age}</div>
                                 </div>
-                            )
+                                <div>
+                                    <button onClick={() => props.handleDeleteFriend(friend.id)}>Delete</button>
+                                </div>
+                                <hr></hr>
+                            </div>
+                        )
 
-                        })}
-                    </div>
-                }
-            </div>
-        )
-    }
+                    })}
+                </div>
+            }
+        </div>
+    )
 }
+
+
 
 export default DisplayInfo;
