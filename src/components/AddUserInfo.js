@@ -1,5 +1,6 @@
-import React from "react";
+import {React, useState} from "react";
 
+/*
 class AddUserInfo extends React.Component {
     state = {
         name: '',
@@ -49,6 +50,50 @@ class AddUserInfo extends React.Component {
             </>
         )
     }
+}
+*/
+
+const AddUserInfo = (props) => {
+    const [name, setName] = useState('')
+    const [age, setAge] = useState('')
+
+    const handleOnChangeName = (event) => {
+        setName(event.target.value)
+    }
+
+    const handleOnChangeAge = (event) => {
+        setAge(event.target.value)
+    }
+
+    const handleOnSubmit = (event) => {
+        event.preventDefault()
+        props.handleAddNewFriend({
+            id: Math.floor((Math.random() * 100) + 1) + '-random',
+            name: name,
+            age: age
+        })
+    }
+
+    return (
+        <>
+            Name: {name} - Age: {age} <br />
+            <form onSubmit={(event) => handleOnSubmit(event)}>
+                <label>Your name: </label>
+                <input
+                    value={name}
+                    onChange={(event) => handleOnChangeName(event)}
+                    type="text"
+                /><br />
+                <label>Your age: </label>
+                <input
+                    value={age}
+                    onChange={(event) => handleOnChangeAge(event)}
+                    type="text"
+                /><br />
+                <button>Submit</button>
+            </form>
+        </>
+    )
 }
 
 export default AddUserInfo

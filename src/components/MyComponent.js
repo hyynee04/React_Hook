@@ -1,7 +1,8 @@
-import React from "react";
+import {React, useState} from "react";
 import AddUserInfo from "./AddUserInfo";
 import DisplayInfo from "./DisplayInfo";
 
+/*
 class MyComponent extends React.Component {
     state = {
         listFriends: [
@@ -58,5 +59,44 @@ class MyComponent extends React.Component {
     }
 
 }
+*/
+
+const MyComponent = () => {
+    const [listFriends, setListFriends] = useState([
+        { id: 1, name: 'Chandler', age: '30' },
+        { id: 2, name: 'Monica', age: '25' },
+        { id: 3, name: 'Rachel', age: '24' },
+        { id: 4, name: 'Ross', age: '30' }
+    ])
+
+    const handleAddNewFriend = (friend) => {
+        setListFriends([friend, ...listFriends])
+    }
+
+    const handleDeleteFriend = (id) => {
+        let listFriendsClone = [...listFriends]
+        listFriendsClone = listFriendsClone.filter(item => item.id !== id)
+        setListFriends(listFriendsClone)
+    }
+
+    return (
+        <>
+            <div className="a">
+                <div>
+                    <AddUserInfo
+                        handleAddNewFriend={handleAddNewFriend}
+                    />
+                    <br /><br />
+                    <DisplayInfo
+                        listFriends={listFriends}
+                        handleDeleteFriend={handleDeleteFriend}
+                    />
+                </div>
+            </div>
+            <div className="b"></div>
+        </>
+    )
+}
+
 
 export default MyComponent;
