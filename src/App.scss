@@ -8,16 +8,78 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (min-width: 1400px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+      max-width: 1450px !important;
+  }
+}
+
 .app-container {
   .header-container {
-    .navbar-nav {
+    .btn-login {
+      height: 40px;
+      border-radius: 5px;
+      margin-right: 15px;
+      padding: 0 15px;
+      border: 1px solid #535353;
+    }
+
+    .btn-signup {
+      height: 40px;
+      border-radius: 5px;
+      padding: 0 15px;
+      background-color: #303030;
+      color: white;
+      border: none;
+
+      &:hover {
+        background-color: black;
+      }
+    }
+
+    .navbar {
       z-index: 10;
-      opacity: 0.6;
+      background-color: transparent !important;
+      padding-top: 20px;
       
       .nav-link {
         &.active {
           color: #31AFD4;
           font-weight: 500;
+        }
+      }
+    }
+  }
+  .homepage-container {
+    .homepage-content {
+      padding: 100px;
+      width: 40%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .title-1 {
+        font-size: 50px;
+        font-weight: 300;
+      }
+
+      .title-2 {
+        font-size: 20px;
+      }
+
+      .title-3 {
+        button {
+          height: 40px;
+          border-radius: 5px;
+          padding: 0 15px;
+          background-color: #303030;
+          color: white;
+          border: none;
+
+          &:hover {
+            background-color: black;
+          }
         }
       }
     }
