@@ -8,11 +8,12 @@ import {
     SubMenu,
 } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
-import './Admin.scss';
+import './SideBar.scss';
 
-import { FaGem, FaRegLaughWink, FaTachometerAlt } from 'react-icons/fa';
+import { FaBuffer, FaDiceFour, FaGithub } from 'react-icons/fa';
+import { MdDashboard } from "react-icons/md";
 import sidebarBg from '../../assets/bg2.jpg';
-import { Component } from 'react';
+
 
 const SideBar = (props) => {
     const { image, collapsed, rtl, toggled, handleToggleSidebar } = props
@@ -38,29 +39,27 @@ const SideBar = (props) => {
                             whiteSpace: 'nowrap',
                         }}
                     >
-                        <span>WEB's MENU</span>
+                        <FaDiceFour size={'3em'} color='#31AFD4'/>
+                        <span style={{marginLeft: '10px'}}>WEB's MENU</span>
                     </div>
                 </SidebarHeader>
 
                 <SidebarContent>
                     <Menu iconShape="circle">
                         <MenuItem
-                            icon={<FaTachometerAlt />}
-                            suffix={<span className="badge red">New</span>}
+                            icon={<MdDashboard />}
                         >
                             Dashboard
                         </MenuItem>
-                        <MenuItem icon={<FaGem />}>Components</MenuItem>
                     </Menu>
                     <Menu iconShape="circle">
                         <SubMenu
-                            suffix={<span className="badge yellow">3</span>}
-                            title={"Components"}
-                            icon={<FaRegLaughWink />}
+                            title="Features"
+                            icon={<FaBuffer />}
                         >
-                            <MenuItem>1</MenuItem>
-                            <MenuItem>2</MenuItem>
-                            <MenuItem>3</MenuItem>
+                            <MenuItem>Quản lý Users</MenuItem>
+                            <MenuItem>Quản lý Bài Quiz</MenuItem>
+                            <MenuItem>Quản lý Câu Hỏi</MenuItem>
                         </SubMenu>
                     </Menu>
                 </SidebarContent>
@@ -73,13 +72,14 @@ const SideBar = (props) => {
                         }}
                     >
                         <a
-                            href="https://haryphamdev.github.io/hoidanit-udemy/"
+                            href="https://github.com/hyynee04/React_Hook"
                             target="_blank"
                             className="sidebar-btn"
                             rel="noopener noreferrer"
                         >
+                            <FaGithub />
                             <span style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-                                &#169; Hỏi Dân IT Udemy
+                                React_Hook
                             </span>
                         </a>
                     </div>
