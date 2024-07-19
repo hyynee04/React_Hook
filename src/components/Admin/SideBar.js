@@ -10,9 +10,11 @@ import {
 import 'react-pro-sidebar/dist/css/styles.css';
 import './SideBar.scss';
 
-import { FaBuffer, FaDiceFour, FaGithub } from 'react-icons/fa';
+import { GiWhaleTail } from "react-icons/gi";
+import { FaBuffer, FaGithub } from 'react-icons/fa';
 import { MdDashboard } from "react-icons/md";
 import sidebarBg from '../../assets/bg2.jpg';
+import { Link } from 'react-router-dom';
 
 
 const SideBar = (props) => {
@@ -39,7 +41,7 @@ const SideBar = (props) => {
                             whiteSpace: 'nowrap',
                         }}
                     >
-                        <FaDiceFour size={'3em'} color='#31AFD4'/>
+                        <GiWhaleTail size={'3em'} color='#31AFD4'/>
                         <span style={{marginLeft: '10px'}}>WEB's MENU</span>
                     </div>
                 </SidebarHeader>
@@ -50,6 +52,7 @@ const SideBar = (props) => {
                             icon={<MdDashboard />}
                         >
                             Dashboard
+                            <Link to="/admin" />
                         </MenuItem>
                     </Menu>
                     <Menu iconShape="circle">
@@ -57,7 +60,10 @@ const SideBar = (props) => {
                             title="Features"
                             icon={<FaBuffer />}
                         >
-                            <MenuItem>Quản lý Users</MenuItem>
+                            <MenuItem>
+                                Quản lý Users
+                                <Link to="/admin/manage-user" />
+                            </MenuItem>
                             <MenuItem>Quản lý Bài Quiz</MenuItem>
                             <MenuItem>Quản lý Câu Hỏi</MenuItem>
                         </SubMenu>

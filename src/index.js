@@ -1,18 +1,20 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import store from './redux/store';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter,
-  Routes,
   Route,
+  Routes,
 } from 'react-router-dom';
-import User from './components/User/User';
+import App from './App';
 import Admin from './components/Admin/Admin';
+import ManageUser from './components/Admin/Content/ManageUser';
 import HomePage from './components/Home/HomePage';
+import User from './components/User/User';
+import store from './redux/store';
+import reportWebVitals from './reportWebVitals';
+import DashBoard from './components/Admin/Content/DashBoard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,7 +26,11 @@ root.render(
           <Route index element={<HomePage />} />
           <Route path='user' element={<User />} />
         </Route>
-        <Route path='admin' element={<Admin />} />
+
+        <Route path='admin' element={<Admin />}>
+          <Route index element={<DashBoard />} />
+          <Route path='manage-user' element={<ManageUser />} />
+        </Route>
       </Routes>
     </BrowserRouter>
     {/* </React.StrictMode> */}
