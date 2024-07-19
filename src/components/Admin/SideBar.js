@@ -10,11 +10,11 @@ import {
 import 'react-pro-sidebar/dist/css/styles.css';
 import './SideBar.scss';
 
+import { FaBuffer, FaGithub, FaCircle } from 'react-icons/fa';
 import { GiWhaleTail } from "react-icons/gi";
-import { FaBuffer, FaGithub } from 'react-icons/fa';
 import { MdDashboard } from "react-icons/md";
-import sidebarBg from '../../assets/bg2.jpg';
 import { Link } from 'react-router-dom';
+import sidebarBg from '../../assets/bg2.jpg';
 
 
 const SideBar = (props) => {
@@ -41,13 +41,13 @@ const SideBar = (props) => {
                             whiteSpace: 'nowrap',
                         }}
                     >
-                        <GiWhaleTail size={'3em'} color='#31AFD4'/>
-                        <span style={{marginLeft: '10px'}}>WEB's MENU</span>
+                        <GiWhaleTail size={'3em'} color='#31AFD4' />
+                        <span style={{ marginLeft: '10px' }}>WEB's MENU</span>
                     </div>
                 </SidebarHeader>
 
                 <SidebarContent>
-                    <Menu iconShape="circle">
+                    <Menu iconShape="circle" >
                         <MenuItem
                             icon={<MdDashboard />}
                         >

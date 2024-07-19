@@ -52,7 +52,7 @@ body {
   }
   .homepage-container {
     .homepage-content {
-      padding: 100px;
+      padding: 100px 0 100px 150px;
       width: 40%;
       position: relative;
       display: flex;
@@ -60,6 +60,7 @@ body {
       gap: 30px;
 
       .title-1 {
+        width: 80%;
         font-size: 50px;
         font-weight: 350;
       }
