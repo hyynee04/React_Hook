@@ -1,7 +1,7 @@
 import './App.scss';
 
+import { Outlet } from 'react-router-dom';
 import Header from './components/Header/Header';
-import { Outlet, Link } from 'react-router-dom';
 
 const App = () => {
 
@@ -16,6 +16,7 @@ const App = () => {
           <Outlet></Outlet>
         </div>
       </div>
+
     </div>
   );
 }

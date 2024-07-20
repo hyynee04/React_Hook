@@ -16,6 +16,7 @@ import store from './redux/store';
 import reportWebVitals from './reportWebVitals';
 import DashBoard from './components/Admin/Content/DashBoard';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>

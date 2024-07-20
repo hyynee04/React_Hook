@@ -61,11 +61,11 @@ const SideBar = (props) => {
                             icon={<FaBuffer />}
                         >
                             <MenuItem>
-                                Quản lý Users
+                                User Management
                                 <Link to="/admin/manage-user" />
                             </MenuItem>
-                            <MenuItem>Quản lý Bài Quiz</MenuItem>
-                            <MenuItem>Quản lý Câu Hỏi</MenuItem>
+                            <MenuItem>Quiz Management</MenuItem>
+                            <MenuItem>Question Management</MenuItem>
                         </SubMenu>
                     </Menu>
                 </SidebarContent>
