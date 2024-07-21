@@ -1,0 +1,17 @@
+.btn {
+    border: none;
+    border-radius: 5px;
+    background-color: #31AFD4;
+    &:hover {
+        background-color: #3cbee6;
+    }
+}
+
+.btn-delete {
+    background-color: #9a2c39;
+    color: #ccc;
+    &:hover {
+        background-color: #b0424f;
+        color: #ccc;
+    }
+}
