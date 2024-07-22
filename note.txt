@@ -36,3 +36,6 @@ HOOK in stateless component
     const [isShown, setShowHide] = useState(true)
     - isShown is a variable with value true
     - setShowHide is a function to update isShown
+================================================================
+ASSYNC/AWAIT
+    - 
