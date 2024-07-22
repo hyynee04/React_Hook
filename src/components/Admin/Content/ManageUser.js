@@ -1,16 +1,20 @@
+import { useEffect, useState } from "react";
+import { FaPlus } from "react-icons/fa";
+import { getAllUsers } from '../../../services/apiService';
+import './ManageUser.scss';
 import ModalCreateUser from "./ModalCreateUser";
 import ModalUpdateUser from "./ModalUpdateUser";
-import './ManageUser.scss';
-import { FaPlus } from "react-icons/fa";
+import ModalViewUser from "./ModalViewUser";
 import TableUser from "./TableUser";
-import { useEffect, useState } from "react";
-import { getAllUsers } from '../../../services/apiService';
 
 
 const ManageUser = (props) => {
     const [showModalCreateUser, setShowModalCreateUser] = useState(false)
     const [showModalUpdateUser, setShowModalUpdateUser] = useState(false)
+    const [showModalViewUser, setShowModalViewUser] = useState(false)
+
     const [dataUpdate, setDataUpdate] = useState({})
+    const [dataView, setDataView] = useState({})
 
     const [listUsers, setListUsers] = useState([])
 
@@ -26,13 +30,18 @@ const ManageUser = (props) => {
     }
 
     const handleClickBtnUpdate = (user) => {
-        console.log(">>> check user: ", user)
         setShowModalUpdateUser(true)
         setDataUpdate(user)
     }
 
-    const resetUpdateData = () => {
+    const handleClickBtnView = (user) => {
+        setShowModalViewUser(true)
+        setDataView(user)
+    }
+
+    const resetData = () => {
         setDataUpdate({})
+        setDataView({})
     }
 
     return (
@@ -42,7 +51,7 @@ const ManageUser = (props) => {
             </div>
             <div className="user-content">
                 <div className="btn-add-new">
-                    <button 
+                    <button
                         className="btn-add"
                         onClick={() => setShowModalCreateUser(true)}
                     >
@@ -51,22 +60,30 @@ const ManageUser = (props) => {
                     </button>
                 </div>
                 <div className="table-users-container">
-                    <TableUser 
+                    <TableUser
                         listUsers={listUsers}
                         handleClickBtnUpdate={handleClickBtnUpdate}
+                        handleClickBtnView={handleClickBtnView}
                     />
                 </div>
-                <ModalCreateUser 
-                    show={showModalCreateUser} 
+                <ModalCreateUser
+                    show={showModalCreateUser}
                     setShow={setShowModalCreateUser}
                     fetchListUsers={fetchListUsers}
                 />
-                <ModalUpdateUser 
-                    show={showModalUpdateUser} 
+                <ModalViewUser
+                    show={showModalViewUser}
+                    setShow={setShowModalViewUser}
+                    dataView={dataView}
+                    fetchListUsers={fetchListUsers}
+                    resetData={resetData}
+                />
+                <ModalUpdateUser
+                    show={showModalUpdateUser}
                     setShow={setShowModalUpdateUser}
                     dataUpdate={dataUpdate}
                     fetchListUsers={fetchListUsers}
-                    resetUpdateData={resetUpdateData}
+                    resetData={resetData}
                 />
             </div>
         </div>
