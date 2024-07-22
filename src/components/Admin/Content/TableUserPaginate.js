@@ -1,7 +1,14 @@
+import ReactPaginate from 'react-paginate';
 import './TableUser.scss';
 
-const TableUser = (props) => {
-    const { listUsers } = props 
+const TableUserPaginate = (props) => {
+    const { listUsers, fetchListUsersWithPaginate } = props
+    // const [pageCount, setPageCount] = useState(0);
+
+    const handlePageClick = (event) => {
+        fetchListUsersWithPaginate(+event.selected + 1)
+        console.log(`User requested page number ${event.selected}`);
+    };
 
     return (
         <>
@@ -25,15 +32,15 @@ const TableUser = (props) => {
                                     <td>{item.email}</td>
                                     <td>{item.role}</td>
                                     <td>
-                                        <button 
+                                        <button
                                             className="btn"
                                             onClick={() => props.handleClickBtnView(item)}
                                         >View</button>
-                                        <button 
+                                        <button
                                             className="btn mx-3"
                                             onClick={() => props.handleClickBtnUpdate(item)}
                                         >Update</button>
-                                        <button 
+                                        <button
                                             className="btn btn-delete"
                                             onClick={() => props.handleClickBtnDelete(item)}
                                         >Delete</button>
@@ -49,8 +56,31 @@ const TableUser = (props) => {
                     }
                 </tbody>
             </table>
+
+            <div className='user-pagination'>
+                <ReactPaginate
+                    nextLabel="next >"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={2}
+                    pageCount={props.pageCount}
+                    previousLabel="< previous"
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    nextLinkClassName="page-link"
+                    breakLabel="..."
+                    breakClassName="page-item"
+                    breakLinkClassName="page-link"
+                    containerClassName="pagination"
+                    activeClassName="active"
+                    renderOnZeroPageCount={null}
+                />
+            </div>
         </>
     )
 }
 
-export default TableUser;
+export default TableUserPaginate;

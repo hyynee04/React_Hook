@@ -15,3 +15,25 @@
         color: #efefef;
     }
 }
+
+.user-pagination {
+    display: flex;
+    justify-content: center;
+    .pagination {
+        .active>.page-link, .page-link.active {
+            background-color: #31AFD4;
+            border-color: #31AFD4;
+            color: #efefef;;
+        }
+        
+        .page-link {
+            color: #31AFD4;
+        
+            &:hover {
+                color: #31AFD4;
+                background-color: #dee2e6;
+            }
+        }
+    }
+}
+
