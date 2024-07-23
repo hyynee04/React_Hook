@@ -1,0 +1,36 @@
+.login-container {
+    .header {
+        height: 45px;
+        text-align: right;
+        border: 1px solid red;
+    }
+
+    .title {
+        font-size: 35px;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .welcome {
+        font-size: 20px;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .content-form {
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            .btn {
+                margin-top: 20px;
+                width: 25%;
+            }
+        }
+
+        input {
+            margin: 3px 0 10px;
+        }
+
+        
+    }
+}
