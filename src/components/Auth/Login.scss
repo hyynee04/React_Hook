@@ -35,6 +35,23 @@
     }
 
     .content-form {
+        .form-group {
+            position: relative;
+
+            svg {
+                height: 1.3em;
+                width: 1.3em;
+                color: #31AFD4;
+                position: absolute;
+                bottom: 8px;
+                right: 0.75rem;
+                cursor: pointer;
+
+                &:hover {
+                    color: #3cbee6;
+                }
+            }
+        }
         .btn-container {
             display: flex;
             justify-content: center;

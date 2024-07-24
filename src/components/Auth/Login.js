@@ -1,18 +1,38 @@
 import { useState } from 'react';
 import './Login.scss';
-import { FaAngleLeft } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { postLogin } from '../../services/apiService';
 import { toast } from 'react-toastify';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import _ from 'lodash';
 
 const Login = (props) => {
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
+    const [isShowed, setIsShowed] = useState(false)
+
+    const validateEmail = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            )
+    }
 
     const handleLogin = async() => {
         //validate
+        const isValidEmail = validateEmail(email)
+
+        if(!isValidEmail) {
+            toast.error("Invalid email!")
+            return
+        }
+        if(_.isEmpty(password)) {
+            toast.error("Invalid password!")
+            return
+        }
 
 
         //submit api
@@ -29,7 +49,10 @@ const Login = (props) => {
         <div className="login-container">
             <div className='header'>
                 <span>Don't have an account yet?</span>
-                <button className='btn btn-signup'>Sign up</button>
+                <button 
+                    className='btn btn-signup'
+                    onClick={() => {navigate('/register')}}
+                >Sign up</button>
             </div>
             <div className='title col-3 mx-auto'>
                 ReactJS
@@ -51,11 +74,20 @@ const Login = (props) => {
                 <div className='form-group'>
                     <label>Password</label>
                     <input 
-                        type='password' 
+                        type={isShowed ? "text" : "password"}
                         className='form-control' 
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
                     />
+                    {isShowed ?
+                        <FaEyeSlash 
+                            onClick={() => setIsShowed(!isShowed)}
+                        />
+                        :
+                        <FaEye 
+                            onClick={() => setIsShowed(!isShowed)}
+                        />
+                    }
                 </div>
                 <span>Forgot your password?</span>
                 <div className='btn-container'>

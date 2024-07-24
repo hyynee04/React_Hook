@@ -50,10 +50,6 @@ const ModalCreateUser = (props) => {
             toast.error("Invalid password!")
             return
         }
-        if(!username) {
-            toast.error("Invalid username!")
-            return
-        }
 
         //call API
         let data = await postCreateNewUser(email, password, username, role, image)

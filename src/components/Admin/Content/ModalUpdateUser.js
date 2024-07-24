@@ -48,7 +48,7 @@ const ModalUpdateUser = (props) => {
     const handleSubmitCreateUser = async () => {
         //validate
         if (!username) {
-            toast.error("Invalid username!")
+            toast.error(`"username" is not allowed to be empty!`)
             return
         }
 
