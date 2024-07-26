@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Login.scss';
+import { ImSpinner2 } from "react-icons/im";
 import { useNavigate } from 'react-router-dom';
 import { postLogin } from '../../services/apiService';
 import { toast } from 'react-toastify';
@@ -15,6 +16,7 @@ const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
     const [isShowed, setIsShowed] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     const validateEmail = (email) => {
         return String(email)
@@ -37,15 +39,17 @@ const Login = (props) => {
             return
         }
 
-
+        setIsLoading(true)
         //submit api
         let data = await postLogin(email, password)
         if(data && +data.EC === 0) {
             dispatch(doLogin(data))
             toast.success(data.EM)
-            navigate('/')
+            setIsLoading(false)
+            // navigate('/')
         } else {
             toast.error(data.EM)
+            setIsLoading(false)
         }
     }
 
@@ -98,7 +102,11 @@ const Login = (props) => {
                     <button 
                         className='btn submit'
                         onClick={() => handleLogin()}
-                    >Log in</button>
+                        disabled={isLoading}
+                    >
+                        {isLoading && <ImSpinner2 className='loader-icon'/>}
+                        <span>Log in</span>
+                    </button>
                 </div>
                 <div className='back'>
                      <span onClick={() => {navigate('/')}}>&#60;&#60; Go back</span>

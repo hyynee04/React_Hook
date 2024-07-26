@@ -58,6 +58,25 @@
             .btn {
                 margin: 20px 0;
                 width: 25%;
+
+                &:disabled {
+                    background-color: #ccc;
+                    cursor: no-drop;
+                }
+
+                .loader-icon {
+                    margin: 0 5px 3px 0;
+                    animation: spin 1s infinite linear;
+                }
+
+                @keyframes spin {
+                    from {
+                        transform: scale(1) rotate(0deg);
+                    }
+                    to {
+                        transform: scale(1) rotate(360deg);
+                    }
+                }
             }
         }
 
